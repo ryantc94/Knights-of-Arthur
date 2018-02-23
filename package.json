@@ -1,0 +1,22 @@
+{
+  "name": "kill_the_werewolf",
+  "version": "1.0.0",
+  "description": "Deception Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryantc94/kill_the_werewolf.git"
+  },
+  "author": "Ryan Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryantc94/kill_the_werewolf/issues"
+  },
+  "homepage": "https://github.com/ryantc94/kill_the_werewolf#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
