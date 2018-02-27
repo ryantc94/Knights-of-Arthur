@@ -1,7 +1,7 @@
 # kill_the_werewolf
 Deception Game
 
-![alt text]wireframes/Home_Page.png
+![alt text](wireframes/Home_Page.png)
 ![alt text]wireframes/Player_Page.png
 ![alt text]wireframes/Website_Role_Choosing.png
 ![alt text]wireframes/Mobile_Role_Choosing.png
