@@ -2,38 +2,41 @@
 Deception Game
 
 Home Page
-![alt text](wireframes/Home_Page.png)
+<img src='wireframes/Home_Page.png' width='500' height='500'/>
 
 Choose Amount of Players and Discussion Time
-![alt text](wireframes/Player_Page.png)
+<img src='wireframes/Player_Page.png' width='500' height='500'/>
 
 Website Wireframe for Recieving Roles
-![alt text](wireframes/Website_Role_Choosing.png)
+<img src='wireframes/Website_Role_Choosing.png ' width='500' height='500'/>
 
 Mobile Wireframe for Recieving Roles
-![alt text](wireframes/Mobile_Role_Choosing.png)
+<img src='wireframes/Mobile_Role_Choosing.png' width='500' height='500'/>
 
 Day Time
-![alt text](wireframes/Day.png)
+<img src='wireframes/Day.png' width='500' height='500'/>
 
 Who Died?
-![alt text](wireframes/Player_Death.png)
+<img src='wireframes/Player_Death.png' width='500' height='500'/>
 
 Group Discussion
-![alt text](wireframes/Discussion.png)
+<img src='wireframes/Discussion.png' width='500' height='500'/>
 
 Night Time
-![alt text](wireframes/Night.png)
+<img src='wireframes/Night.png' width='500' height='500'/>
 
 Website Werewolves Choose Who to Eat
-![alt text](wireframes/Werewolves_Discuss.png)
+<img src='wireframes/Werewolves_Discuss.png' width='500' height='500'/>
+
+Mobile Werewolves Choose Who to Eat
+<img src='wireframes/Mobile_Werewolves_Choose.png' width='500' height='500'/>
 
 Results
-![alt text](wireframes/Results.png)
+<img src='wireframes/Results.png' width='500' height='500'/>
 
 Rules Page
-![alt text](wireframes/Rules.png)
+<img src='wireframes/Rules.png' width='500' height='500'/>
 
 About Page
-![alt text](wireframes/About.png)
+<img src='wireframes/About.png' width='500' height='500'/>
 
