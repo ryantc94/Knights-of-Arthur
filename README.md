@@ -29,11 +29,11 @@ Website Werewolves Choose Who to Eat
 ![alt text](wireframes/Werewolves_Discuss.png)
 
 Results
-![alt text]wireframes/Results.png
+![alt text](wireframes/Results.png)
 
 Rules Page
-![alt text](wireframes/rules.png)
+![alt text](wireframes/Rules.png)
 
 About Page
-![alt text](wireframes/about.png)
+![alt text](wireframes/About.png)
 
