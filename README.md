@@ -11,8 +11,8 @@ I guess this can be a isomorphic app, client side for everything except the actu
 * ^React Router for routing
 
 
-##Wireframes
-###Home Page
+## Wireframes
+### Home Page
 <br />
 <img src='wireframes/Home_Page.png' width='500' height='500'/>
 

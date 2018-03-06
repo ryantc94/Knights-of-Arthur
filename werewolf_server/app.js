@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
 var debug = require('debug')('werewolf-server:server');
+var socketIO = require('socket.io');
 
 
 var index = require('./routes/index');
@@ -21,7 +22,18 @@ var users = require('./routes/users');
 
 var app = express();
 var httpServer = http.createServer(app);
-var socketServer = require('socket.io')(httpServer);
+var wsServer = socketIO(httpServer);
+
+// Websocket Code
+wsServer.on('connect', function(socket) {
+	console.log('Socket ID: ' + socket.id + ', Connected');
+	socket.emit('test', { text: 'Successful Emit' })
+	socket.on('disconnect', function(){
+		console.log('Socket ID: ' + socket.id + ', Disconnected');
+	});
+});
+
+// Express Code
 
 /**
  * Get port from environment and store in Express.

@@ -12,7 +12,7 @@ var router = express.Router();
 	Multiple callback functions need to make use of next() to pass to the next callback
 */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.send({ response: "I am alive" }).status(200);
 });
 
 module.exports = router;

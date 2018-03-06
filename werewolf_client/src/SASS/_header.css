@@ -1,0 +1,27 @@
+
+/*
+	Flex Box Notes: 
+
+	display: flex;
+
+	justify-content: flex-start | flex-end | center | space-between | space-around
+
+	align-items: flex-start | flex-end | center | space-between | space-around
+
+	align-self: same properties as align-items
+
+	flex-direction: row | row-reverse | column | column-reverse
+		* Notice that when the flex direction is a column, 
+		  justify-content changes to the vertical and align-items to the horizontal.
+		* Notice that when you set the direction to a reversed row or column, 
+		  start and end are also reversed.
+
+	order: -1, 0, 1
+
+	flex-wrap: nowrap | wrap | wrap-reverse
+
+	flex-flow: {flex direction property} {flex wrap property}
+
+	align-content: flex-start | flex-end | center | space-between | space-around | stretch
+		* When there is only one line align-content has no effect
+*/
