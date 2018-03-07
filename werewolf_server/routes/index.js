@@ -11,6 +11,9 @@ var router = express.Router();
 /*
 	Multiple callback functions need to make use of next() to pass to the next callback
 */
+
+//appearently this route is necessary but I'm not sure why...
+
 router.get('/', function(req, res, next) {
   res.send({ response: "I am alive" }).status(200);
 });
