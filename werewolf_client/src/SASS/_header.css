@@ -1,6 +1,6 @@
 
 /*
-	Flex Box Notes: 
+	Flex Box
 
 	display: flex;
 
@@ -25,3 +25,74 @@
 	align-content: flex-start | flex-end | center | space-between | space-around | stretch
 		* When there is only one line align-content has no effect
 */
+
+/*
+	CSS Grids
+
+	display: grid;
+	grid-template-columns:[repeat(grids, %)] x[%/em/px/fr] ... x[%/em/px/fr]
+		fr: fraction (basically it'll be like 1fr 4fr for total 5 so 1/5 4/5)
+			if other columns are set with %/em/px fr will use remaining area as total
+
+  	grid-template-rows: [repeat(grids, %)] y[%/em/px/fr] ... y[%/em/px/fr]
+  		same as columns just for rows, but practices using fr more
+
+  	grid-template: y.../x...;
+  		short hand for row col
+	
+	grid-column-start: [span] x;
+		moves div to specified row/column and by default spans one column 
+		(negative value will come back from other side), 
+		[span]: specifies where to start
+	
+	grid-column-end: [span] y;
+		spans Y extra divs but is exlusive, less than start is inclusive
+		[span]: specifies how man grids to span (including start)
+
+	grid-column: [span] x / [span] y;
+		this is shorthand for start and end
+	
+	grid-row-start: [span] z;
+	grid-row-end: [span] w;
+	grid-row: [span] z / [span] w;
+		above is all same its just for rows
+
+	grid-area: z, x, w, y
+	
+	*Divs can overlap no probelmo
+
+	order: x;
+		all grid items have default order of 0
+*/
+
+.header {
+	display: grid;
+	grid-template-columns: 20% 60% 10% 10%;
+	position: fixed;
+	width: 100%;
+	height: 15%;
+}
+
+.image-container {
+	display: flex;
+	justify-content: center;
+}
+
+.header-image {
+	align-self: flex-end;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.rules-link-container {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.about-link-container {
+	margin-top: 20px;
+}
+
+
+
+

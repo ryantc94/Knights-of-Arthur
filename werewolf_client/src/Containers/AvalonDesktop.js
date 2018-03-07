@@ -1,15 +1,17 @@
 
 //??? i thought import was only used by nodeJS..
+//ans: i think this might be an es6 thing
 import React from "react"
 import socketIOClient from "socket.io-client"
 
 import Header from '../Components/Header'
+import TotalPlayers from '../Components/TotalPlayers'
+
+import '../SASS/_avalonDesktop.css'
 
 /* ???
 	How does importing css work like this?
 */
-import '../SASS/_header.css'
-
 
 class StartInterface extends React.Component {
 	constructor() {
@@ -28,8 +30,12 @@ class StartInterface extends React.Component {
 
 	render() {
 		return (
-			<Header />
-
+			<div className='desktop-grid'>
+				<Header />
+				<div className='swap-game-component'>
+					<TotalPlayers />
+				</div>
+			</div>
 		)
 	};
 }

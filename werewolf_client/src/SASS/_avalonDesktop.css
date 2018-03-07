@@ -1,0 +1,9 @@
+
+/*.desktop-grid {
+	display: grid;
+	grid-template-rows: 15% 75%;
+}
+
+.header-component {
+	grid-area: 1 1 2 2;
+}*/
