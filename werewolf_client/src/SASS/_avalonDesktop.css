@@ -1,9 +1,17 @@
 
-/*.desktop-grid {
+.desktop-grid {
+	position: fixed;
 	display: grid;
-	grid-template-rows: 15% 75%;
+	height: 100%;
+	width: 100%;
+	grid-template-columns: 1fr;
+	grid-template-rows: 15% 85%;
 }
 
 .header-component {
-	grid-area: 1 1 2 2;
-}*/
+	grid-row-start: 1;
+}
+
+.game-component {
+	grid-row-start: 2;
+}

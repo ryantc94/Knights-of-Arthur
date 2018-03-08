@@ -13,7 +13,7 @@ import '../SASS/_avalonDesktop.css'
 	How does importing css work like this?
 */
 
-class StartInterface extends React.Component {
+class AvalonDesktop extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -31,8 +31,8 @@ class StartInterface extends React.Component {
 	render() {
 		return (
 			<div className='desktop-grid'>
-				<Header />
-				<div className='swap-game-component'>
+				<Header className='header-component'/>
+				<div className='game-component'>
 					<TotalPlayers />
 				</div>
 			</div>
@@ -40,7 +40,7 @@ class StartInterface extends React.Component {
 	};
 }
 
-export default StartInterface
+export default AvalonDesktop
 
 /* Example from Socket Tutorial
 const { response } = this.state;
