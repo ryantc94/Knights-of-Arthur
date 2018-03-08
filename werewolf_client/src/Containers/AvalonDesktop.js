@@ -32,9 +32,7 @@ class AvalonDesktop extends React.Component {
 		return (
 			<div className='desktop-grid'>
 				<Header className='header-component'/>
-				<div className='game-component'>
-					<TotalPlayers />
-				</div>
+				<TotalPlayers className='game-component'/>
 			</div>
 		)
 	};
