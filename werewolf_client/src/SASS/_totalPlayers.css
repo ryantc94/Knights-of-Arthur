@@ -20,7 +20,7 @@
 	grid-column-start: 2;
 	grid-row-start: 2;
 	display: grid;
-	grid-template: 1fr 0.2fr 1fr / 1fr;
+	grid-template: 1fr 1fr 1fr 4fr/ 1fr;
 }
 
 /*
@@ -28,19 +28,38 @@ I guess CSS grids automatically orders divs into the grids
 based on order of the HTML (pretty sure I took note of this in _header.css)
 */
 
-.chooser-player-input-container {
+.choose-player-input-text{
+	text-align: center;
+}
+
+.choose-player-input-container {
+	grid-row-start: 1;
 	display: flex;
 	justify-content: center;
 }
 
-.chooser-player-input-error {
-	opacity: 0;
+.choose-player-input-error {
+	grid-row-start: 2;
 	color: red;
 	display: flex;
 	justify-content: center;
 }
 
-.chooser-player-input-submit {
+.choose-player-input-submit {
+	grid-row-start: 3;
 	display: flex;
 	justify-content: center;
+}
+
+.choose-player-input-button {
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }

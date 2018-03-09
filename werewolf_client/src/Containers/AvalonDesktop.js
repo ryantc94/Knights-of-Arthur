@@ -5,7 +5,9 @@ import React from "react"
 import socketIOClient from "socket.io-client"
 
 import Header from '../Components/Header'
-import TotalPlayers from '../Components/TotalPlayers'
+import Quest from '../Components/Desktop/QuestTrack/Quest'
+import TotalPlayers from '../Components/Desktop/TotalPlayers'
+import VoteResult from '../Components/Desktop/VoteResult'
 
 import '../SASS/_avalonDesktop.css'
 
@@ -28,11 +30,21 @@ class AvalonDesktop extends React.Component {
 		socket.on("test", data => this.setState({ response: data }));
 	}
 
+	// might be able to user a HOC for the results, or not look into it
 	render() {
+		const testing = false;
 		return (
 			<div className='desktop-grid'>
 				<Header className='header-component'/>
-				<TotalPlayers className='game-component'/>
+				{testing && <TotalPlayers className='game-component'/> }
+				<div className='game-play'>
+					<div className='results'>
+						<VoteResult />
+					</div>
+					<div className='quest-component'>
+						<Quest />
+					</div>
+				</div>
 			</div>
 		)
 	};
