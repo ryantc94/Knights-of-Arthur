@@ -5,9 +5,8 @@ import React from "react"
 import socketIOClient from "socket.io-client"
 
 import Header from '../Components/Header'
-import Quest from '../Components/Desktop/QuestTrack/Quest'
 import TotalPlayers from '../Components/Desktop/TotalPlayers'
-import VoteResult from '../Components/Desktop/VoteResult'
+import Board from '../Components/Desktop/Board'
 
 import '../SASS/_avalonDesktop.css'
 
@@ -37,14 +36,7 @@ class AvalonDesktop extends React.Component {
 			<div className='desktop-grid'>
 				<Header className='header-component'/>
 				{testing && <TotalPlayers className='game-component'/> }
-				<div className='game-play'>
-					<div className='results'>
-						<VoteResult />
-					</div>
-					<div className='quest-component'>
-						<Quest />
-					</div>
-				</div>
+				<Board />
 			</div>
 		)
 	};

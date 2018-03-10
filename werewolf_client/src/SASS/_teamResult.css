@@ -1,0 +1,6 @@
+
+.team-result {
+	height: 100%;
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+}

@@ -1,0 +1,28 @@
+.profile {
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 2fr 5fr 2fr .5fr;
+}
+
+.player-name-container {
+	display: flex;
+	justify-content: center;
+}
+
+.player-name {
+	align-self: flex-end;
+	margin: 0;
+}
+
+.player-pic {
+}
+
+.player-decision-container {
+	display: flex;
+	justify-content: center;
+}
+
+.player-decision {
+
+}

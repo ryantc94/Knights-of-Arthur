@@ -19,7 +19,7 @@
 .game-play {
 	display: grid;
 	grid-template-columns: .075fr 1fr .075fr;
-	grid-template-rows: .75fr 1fr .05fr;
+	grid-template-rows: 1fr 1.2fr .07fr;
 }
 
 .results {

@@ -1,0 +1,47 @@
+
+.mission-track {
+	height: 100%;
+	display: grid;
+	grid-template-columns: .15fr .17fr .17fr .17fr .17fr .17fr .15fr;
+}
+
+.mission {
+	border: solid;
+	border-radius: 10vw;
+	height: 10vw;
+	width: 10vw;
+	display: flex;
+	justify-content: center;
+}
+
+
+.mission-title {
+	/*
+	ughhhhh nothing yet
+	*/
+}
+
+.mission-text {
+	position: absolute;
+	align-self: center;
+}
+
+.mission-1 {
+	grid-column-start: 2;
+}
+
+.mission-2 {
+	grid-column-start: 3;
+}
+
+.mission-3 {
+	grid-column-start: 4;
+}
+
+.mission-4 {
+	grid-column-start: 5;
+}
+
+.mission-5 {
+	grid-column-start: 6;
+}
