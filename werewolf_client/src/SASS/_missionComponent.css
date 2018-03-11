@@ -1,0 +1,66 @@
+
+.mission-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: .3fr 1fr;
+}
+
+.mission-choice-form {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr .7fr;
+}
+
+.mission-button-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.mission-button-container {
+	display: flex;
+	justify-content: center;
+}
+
+.mission-button {
+	border: solid;
+	width: 75%;
+	height: 80%;
+}
+
+/*
+	interesting after you click on somethinge else the 
+	style disseappers
+*/
+.mission-button:hover {
+	background: white;
+}
+
+.success-button {
+	background: green;
+}
+
+.fail-button {
+	background: red;
+}
+
+.mission-choice-title-container {
+	display: flex;
+	justify-content: center;
+}
+
+.mission-choice-title {
+	align-self: center;
+	margin: 0;
+}
+
+.mission-choice-submit-container {
+	display: flex;
+	justify-content: center;
+}
+
+.mission-choice-submit {
+	border: solid;
+	background: #7FFFD4;
+	height: 50%;
+	width: 25%;
+}

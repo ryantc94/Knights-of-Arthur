@@ -7,8 +7,9 @@ import MissionResult from './VoteResult/MissionResult'
 import '../../SASS/_board.css'
 
 function Board() {
-	const hide = false;
-	const awaitingPlayer = false;
+	const testMission = true;
+	const testTeam = false;
+	const awaitingPlayer = true;
 	return (
 		<div className='game-play'>
 			<div className='results'>
@@ -19,8 +20,8 @@ function Board() {
 						</h1>
 					</div>
 				}
-				{hide && <MissionResult />}
-				{hide && <TeamResult />}
+				{testMission && <MissionResult />}
+				{testTeam && <TeamResult />}
 			</div>
 			<div className='quest-component'>
 				<Quest />

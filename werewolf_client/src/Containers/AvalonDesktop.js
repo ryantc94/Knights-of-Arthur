@@ -31,12 +31,13 @@ class AvalonDesktop extends React.Component {
 
 	// might be able to user a HOC for the results, or not look into it
 	render() {
-		const testing = false;
+		const testBoard = true;
+		const testTotalPlayers = false;
 		return (
 			<div className='desktop-grid'>
 				<Header className='header-component'/>
-				{testing && <TotalPlayers className='game-component'/> }
-				<Board />
+				{testTotalPlayers && <TotalPlayers className='game-component'/> }
+				{testBoard && <Board /> }
 			</div>
 		)
 	};

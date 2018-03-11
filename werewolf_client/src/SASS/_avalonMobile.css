@@ -1,0 +1,19 @@
+
+.mobile-grid {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: .2fr .5fr .9fr 1fr;
+}
+
+.role-name-container {
+	display: flex;
+	justify-content: center;
+}
+
+.role-name {
+	align-self: flex-end;
+	margin: 0;
+}
