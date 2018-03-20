@@ -6,10 +6,11 @@ import MissionResult from './VoteResult/MissionResult'
 
 import '../../SASS/_board.css'
 
-function Board() {
-	const testMission = true;
-	const testTeam = false;
-	const awaitingPlayer = true;
+//when do i pass stuff to Board?
+function Board({attendingPlayers, playerPop}) {
+	const awaitingPlayer = attendingPlayers === playerPop
+	const testMission = !awaitingPlayer && false;
+	const testTeam = !awaitingPlayer && false;
 	return (
 		<div className='game-play'>
 			<div className='results'>

@@ -1,0 +1,40 @@
+
+.information-container {
+	display: grid;
+	/*
+	TODO: why does here have to be a column;
+	*/
+	grid-template-columns: 1fr;
+	grid-template-rows: .15fr .85fr;
+}
+
+.information-title-container {
+	display: grid;
+	justify-content: center;
+}
+
+.information-title {
+	align-self: center;
+	margin: 0;
+}
+
+.information-profile-container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.information-profile {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: .3fr .7fr;
+}
+
+.information-profile-name-container {
+	display: flex;
+	justify-content: center;
+}
+
+.information-profile-pic-container {
+	display: flex;
+	justify-content: center;
+}

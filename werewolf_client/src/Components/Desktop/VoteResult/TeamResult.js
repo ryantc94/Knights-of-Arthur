@@ -6,8 +6,8 @@ import '../../../SASS/_teamResult.css'
 
 class TeamResult extends React.Component {
 	render() {
-		const teamResults = false;
-		const missionResults=true
+		// const teamResults = false;
+		// const missionResults=true
 		return (
 			<div className='team-result'>
 				<Profile />

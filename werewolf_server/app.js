@@ -2,6 +2,10 @@
  * Module dependencies.
  */
 
+require('./db.js')
+var mongoose = require('mongoose')
+var Game = mongoose.model('Game');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -14,7 +18,6 @@ var socketIO = require('socket.io');
 
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 
 /**
  * Create HTTP server.
@@ -27,10 +30,19 @@ var wsServer = socketIO(httpServer);
 // Websocket Code
 wsServer.on('connect', function(socket) {
 	console.log('Socket ID: ' + socket.id + ', Connected');
-	socket.emit('test', { text: 'Successful Emit' })
-	socket.on('disconnect', function(){
-		console.log('Socket ID: ' + socket.id + ', Disconnected');
-	});
+
+  // So I guess socket passes data arg to the callback? def need to search up and document how callbacks work tomorrow
+  socket.on('playerPop', function(data){
+    var newGame = new Game({
+    id: socket.id,
+    playerNumber: data.playerPop
+  }).save();
+
+  });
+
+  socket.on('disconnect', function(){
+    console.log('Socket ID: ' + socket.id + ', Disconnected');
+  });
 });
 
 // Express Code
@@ -59,7 +71,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 	Routes
 */
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

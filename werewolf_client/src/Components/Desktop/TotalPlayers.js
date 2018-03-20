@@ -11,9 +11,14 @@ Form tag wraps the entire form, everything from input to submit.
 
 */
 
+// So really it seems I shouldn't be handling the state here it should be in app.js
+// so i'll need to refactor this eventually
+
 class TotalPlayers extends React.Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
+		//huh why this
+		this.onInputPlayers = this.onInputPlayers.bind(this)
 		this.state = {
 			playerNumber: ''
 		}
@@ -33,19 +38,17 @@ class TotalPlayers extends React.Component {
 	}
 
 	//TODO: read about react synthetic events like onsubmit and what not
-
+	// this prevents default page reload
 	handleSubmit = e => {
-		console.log('Input was submitted')
+		e.preventDefault();
+        e.stopPropagation();
+        this.props.onPopulationInput(this.state.playerNumber)
 	}
 
 	onInputPlayers = e => {
 		this.setState({ 
 			playerNumber : e.target.value
 		})
-	}
-
-	onInputSubmit = e => {
-		console.log(typeof(this.state.playerNumber))
 	}
 
 	render() {

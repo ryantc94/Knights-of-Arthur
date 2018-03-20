@@ -9,7 +9,7 @@ function ResultProfile() {
 				<p className='player-name'> Name </p>
 			</div>
 			<div className='player-pic'>
-				<img src=''/>
+				<img alt='' src=''/>
 			</div>
 			<div className='player-decision-container'>
 				<p className='player-decision'> Decision </p>

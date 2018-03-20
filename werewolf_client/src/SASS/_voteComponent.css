@@ -1,0 +1,73 @@
+.awaiting-captain {
+	text-align: center;
+}
+
+.vote-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: .3fr 1fr;
+}
+
+.vote-choice-form {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr .7fr;
+}
+
+.vote-button-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.vote-button-container {
+	display: flex;
+	justify-content: center;
+}
+
+.vote-button {
+	border: solid;
+	width: 75%;
+	height: 80%;
+}
+
+/*
+	interesting after you click on somethinge else the 
+	style disseappers
+*/
+.vote-button:hover {
+	background: white;
+}
+
+.pass-button {
+	background: green;
+}
+
+.deny-button {
+	background: red;
+}
+
+.vote-choice-title-container {
+	display: flex;
+	justify-content: center;
+}
+
+.vote-choice-title {
+	align-self: center;
+	margin: 0;
+}
+
+.vote-choice-submit-container {
+	display: flex;
+	justify-content: center;
+}
+
+.vote-choice-submit {
+	border: solid;
+	background: #7FFFD4;
+	height: 50%;
+	width: 25%;
+}
+
+.hidden {
+	visibility: hidden;
+}
