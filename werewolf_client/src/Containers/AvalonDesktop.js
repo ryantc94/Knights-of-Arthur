@@ -17,11 +17,13 @@ class AvalonDesktop extends React.Component {
 	// might be able to user a HOC for the results, or not look into it
 	render() {
 		const gameStart = this.props.playerPop !== ''
+		console.log(this.props.attendingPlayers)
 		return (
 			<div className='desktop-grid'>
 				<Header className='header-component'/>
 				{gameStart 
 					? <Board 
+						mainKey={this.props.mainKey}
 						attendingPlayers={this.props.attendingPlayers}
 						playerPop={this.props.playerPop}
 					/>

@@ -3,23 +3,24 @@ import React from 'react'
 import Quest from './QuestTrack/Quest'
 import TeamResult from './VoteResult/TeamResult'
 import MissionResult from './VoteResult/MissionResult'
+import AwaitingPlayers from './AwaitingPlayers'
 
 import '../../SASS/_board.css'
 
-//when do i pass stuff to Board?
-function Board({attendingPlayers, playerPop}) {
+function Board({mainKey, attendingPlayers, playerPop}) {
 	const awaitingPlayer = attendingPlayers === playerPop
+	console.log(attendingPlayers)
 	const testMission = !awaitingPlayer && false;
 	const testTeam = !awaitingPlayer && false;
 	return (
 		<div className='game-play'>
 			<div className='results'>
-				{ !awaitingPlayer &&
-					<div className='awaiting-result-text-container'>
-						<h1 className='awaiting-result-text'>
-							Awaiting Player Decisions ...
-						</h1>
-					</div>
+				{ !awaitingPlayer 
+					&& <AwaitingPlayers 
+						playerPop={playerPop}
+						mainKey={mainKey}
+						attendingPlayers={attendingPlayers}
+					/>
 				}
 				{testMission && <MissionResult />}
 				{testTeam && <TeamResult />}

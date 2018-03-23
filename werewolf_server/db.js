@@ -1,7 +1,10 @@
 var mongoose = require('mongoose')
 
 var Character = new mongoose.Schema({
-	name: String
+	_id: Number,
+	name: String,
+	playerName: String,
+	distribution: Boolean
 });
 
 var Player = new mongoose.Schema({
@@ -11,9 +14,10 @@ var Player = new mongoose.Schema({
 });
 
 var Game = new mongoose.Schema({
-	id: String,
-	playNumber: String,
-	players: [Player]
+	_id: String,
+	playerNumber: String,
+	players: [Player],
+	characters: [Character]
 });
 
 mongoose.model('Game', Game);

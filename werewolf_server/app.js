@@ -5,6 +5,8 @@
 require('./db.js')
 var mongoose = require('mongoose')
 var Game = mongoose.model('Game');
+var Player = mongoose.model('Player');
+var Character = mongoose.model('Character');
 
 var express = require('express');
 var path = require('path');
@@ -33,12 +35,92 @@ wsServer.on('connect', function(socket) {
 
   // So I guess socket passes data arg to the callback? def need to search up and document how callbacks work tomorrow
   socket.on('playerPop', function(data){
-    var newGame = new Game({
-    id: socket.id,
-    playerNumber: data.playerPop
-  }).save();
+    //9 player 3 minion
+    //8 player 3 minion
+    //7 player 3 minion
+    //6 players 2 minion
+    var characters = {
+      1: "Morgana",
+      2: "Assassin",
+      3: "Percavil",
+      4: "Merlin",
+      5: "Minion of Mordred",
+      6: "Knight of Arthur"
+    }
+    var totalMinions = data.playerPop <= 6 ? 2 : 3;
+    var playersToKnights = (parseInt(data.playerPop) - totalMinions)
+    var characterList = []
 
+    /*
+      Note: Model.save() returns a promise so you can't add it directly to the charcterList
+      you have to first save the Model to a variable push that to the character list
+      and then save the variable holding the new Model.
+    */
+    for(var i = 0; i < 4; i++){
+      var newCharacter = new Character({
+        _id: i,
+        name: characters[i],
+        distribution: false
+      });
+      characterList.push(newCharacter)
+      newCharacter.save();
+    }
+    for(var i = 4; i < playersToKnights; i++) {
+      var newCharacter = new Character({
+        _id: i,
+        name: characters[6],
+        distribution: false
+      });
+      characterList.push(newCharacter)
+      newCharacter.save();
+    }
+    for(var i = playersToKnights; i < parseInt(data.playerPop); i++) {
+      var newCharacter = new Character({
+        _id: i,
+        name: characters[5],
+        distribution: false
+      });
+      characterList.push(newCharacter)
+      newCharacter.save();
+    }
+    var newGame = new Game({
+      _id: socket.id,
+      playerNumber: data.playerPop,
+      characters: characterList
+    }).save(function(err, game) {
+      /*
+        Note: Adding the above Character logic in this save wouldn't work
+        because it wouldn't probably save the game changes after adding them to the game data.
+        So if I wanted it to be in this save how would I do it?
+      */
+      socket.emit('game_start', {newGame: game})
+    });
   });
+
+  socket.on('playerEnter', function(data){
+    Game.findOne({_id: data.roomKey}, function(err, game){
+      var stop = true
+      var ranNum;
+      while(stop) {
+        console.log(game)
+        ranNum = Math.floor(Math.random() * parseInt(game.playerNumber));
+        if(!game.characters[ranNum].distribution) {
+          game.characters[ranNum].distribution = true;
+          game.characters[ranNum].playerName = data.userName;
+          stop = false;
+        }
+      }
+      new Player({
+        name: data.userName,
+        position: game.characters[ranNum]
+      }).save(function(error, player) {
+        socket.emit('playerConfirm', {playerInfo: player})
+      });
+    });
+  });
+
+  
+
 
   socket.on('disconnect', function(){
     console.log('Socket ID: ' + socket.id + ', Disconnected');

@@ -17,26 +17,36 @@ class App extends React.Component {
 		super();
 		this.state = {
 			players: '',
+			attendingPlayers: 0,
 			userName: '',
-			attendingPlayers: '',
 			mainKey:'',
 			roomKey:'',
 		 	response: false,
 		 	endpoint: "http://127.0.0.1:8000"
 		};
 		this.socket = socketIOClient(this.state.endpoint);
-		this.socket.on("recieve_info", data => this.setState({ response: data }));
+
+		//response
+		this.socket.on("game_start", data => {
+			this.setState({mainKey: data.newGame._id, attendingPlayers: data.newGame.players.length})
+		});
+		this.socket.on("wrong_room", data => this.setState({ response: data }));
+		this.socket.on("playerConfirm", data => {
+			this.setState({attendingPlayers: this.state.attendingPlayers + 1})
+		});
+
 		this.playerNumber = this.playerNumber.bind(this)
 		this.playerName	= this.playerName.bind(this)
 	}
 
 	playerNumber(playerPop) {
-		this.setState({players: playerPop});
-		this.socket.emit("playerPop", {playerPop: playerPop});
+		this.setState({players: playerPop})
+		this.socket.emit("playerPop", {playerPop: playerPop})
 	}
 
 	playerName(userID, roomID) {
 		this.setState({userName: userID, roomKey: roomID})
+		this.socket.emit("playerEnter", {userName: userID, roomKey: roomID})
 	}
 
 	render() {
