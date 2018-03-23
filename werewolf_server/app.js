@@ -114,7 +114,7 @@ wsServer.on('connect', function(socket) {
         name: data.userName,
         position: game.characters[ranNum]
       }).save(function(error, player) {
-        socket.emit('playerConfirm', {playerInfo: player})
+        socket.broadcast.emit('playerConfirm', {playerInfo: player})
       });
     });
   });
