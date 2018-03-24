@@ -5,13 +5,17 @@ import '../../SASS/_mobileLogin.css'
 class MobileLoginComponent extends React.Component {
 
 	constructor() {
-		super();
+		super()
 		this.state = {
 			roomInput: '',
 			nameInput: ''
 		}
 		this.roomKeyInput = this.roomKeyInput.bind(this)
 		this.playerNameInput = this.playerNameInput.bind(this)
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({roomInput: ''})
 	}
 
 	roomKeyInput = e => {
@@ -38,7 +42,7 @@ class MobileLoginComponent extends React.Component {
 					<input 
 						className='code'
 						type='text'
-						placeholder='Room Key'
+						placeholder={this.props.wrongRoom ? 'Wrong Room Key' : 'Room Key'}
 						value={this.state.roomInput}
 						onChange={this.roomKeyInput}
 						required

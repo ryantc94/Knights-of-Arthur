@@ -16,7 +16,7 @@ class AvalonMobile extends React.Component {
 		const login = false;
 		const isVoting = false;
 		const isMission = false;
-		
+
 		const game = <div className='mobile-grid'>
 						<div className='role-name-container'>
 							<h2 className='role-name'> Role Name </h2>
@@ -32,6 +32,7 @@ class AvalonMobile extends React.Component {
 			login 
 			? game 
 			: <MobileLoginComponent
+				wrongRoom={this.props.wrongRoom}
 				userLogin={this.props.userLogin}
 			/>
 		)

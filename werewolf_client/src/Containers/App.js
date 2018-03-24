@@ -21,6 +21,7 @@ class App extends React.Component {
 			userName: '',
 			mainKey:'',
 			roomKey:'',
+			wrongRoom: false,
 		 	response: false,
 		 	endpoint: "http://127.0.0.1:8000"
 		};
@@ -28,11 +29,11 @@ class App extends React.Component {
 
 		//response
 		this.socket.on("game_start", data => {
-			this.setState({mainKey: data.newGame._id, attendingPlayers: data.newGame.players.length})
+			this.setState({ mainKey: data.newGame._id, attendingPlayers: data.newGame.players.length })
 		});
-		this.socket.on("wrong_room", data => this.setState({ response: data }));
+		this.socket.on("wrong_room", data => this.setState({ wrongRoom: data.wrongRoom }))
 		this.socket.on("playerConfirm", data => {
-			this.setState({attendingPlayers: this.state.attendingPlayers + 1})
+			this.setState({ attendingPlayers: this.state.attendingPlayers + 1 })
 		});
 
 		this.playerNumber = this.playerNumber.bind(this)
@@ -51,12 +52,13 @@ class App extends React.Component {
 
 	render() {
 		const isMobile = window.innerWidth <= 500
-		// Need to pass a check that Room Key and Main Key match
-
+		console.log(this.state.wrongRoom)
+		// Need to pass a check that Room Key and Main Key matcha
 		return isMobile 
 			? <AvalonMobile
-				userLogin={this.playerName}
+				wrongRoom={this.state.wrongRoom}
 				userName={this.state.userName}
+				userLogin={this.playerName}
 			/>
 			: <AvalonDesktop
 				mainKey={this.state.mainKey}

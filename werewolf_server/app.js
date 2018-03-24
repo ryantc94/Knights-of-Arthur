@@ -99,10 +99,14 @@ wsServer.on('connect', function(socket) {
 
   socket.on('playerEnter', function(data){
     Game.findOne({_id: data.roomKey}, function(err, game){
+      //error is only populated when there is an actual error
+      if(game === null) {
+        socket.emit('wrong_room', {wrongRoom: true})
+        return
+      }
       var stop = true
       var ranNum;
       while(stop) {
-        console.log(game)
         ranNum = Math.floor(Math.random() * parseInt(game.playerNumber));
         if(!game.characters[ranNum].distribution) {
           game.characters[ranNum].distribution = true;
