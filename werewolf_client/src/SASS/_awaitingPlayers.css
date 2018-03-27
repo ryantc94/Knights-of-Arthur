@@ -1,0 +1,16 @@
+.awaiting-result-text-container {
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr;
+}
+
+.awaiting-result-text-flex {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.awaiting-result-text {
+	align-self: center;
+}

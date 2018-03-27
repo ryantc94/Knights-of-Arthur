@@ -98,10 +98,11 @@ wsServer.on('connect', function(socket) {
   });
 
   socket.on('playerEnter', function(data){
-    Game.findOne({_id: data.roomKey}, function(err, game){
+    Game.findOne({_id: data.inputKey}, function(err, game){
       //error is only populated when there is an actual error
+      console.log(game)
       if(game === null) {
-        socket.emit('wrong_room', {wrongRoom: true})
+        socket.emit('wrong_room', {loginSuccess: false})
         return
       }
       var stop = true
@@ -118,7 +119,8 @@ wsServer.on('connect', function(socket) {
         name: data.userName,
         position: game.characters[ranNum]
       }).save(function(error, player) {
-        socket.broadcast.emit('playerConfirm', {playerInfo: player})
+        socket.emit('playerConfirm', {playerInfo: player, loginSuccess: true})
+        socket.broadcast.emit('playerConfirm', {playerInfo: player, loginSuccess: true})
       });
     });
   });

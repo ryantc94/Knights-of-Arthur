@@ -42,7 +42,7 @@ class MobileLoginComponent extends React.Component {
 					<input 
 						className='code'
 						type='text'
-						placeholder={this.props.wrongRoom ? 'Wrong Room Key' : 'Room Key'}
+						placeholder={this.props.loginSuccess === false ? 'Wrong Room' : 'Room Key'}
 						value={this.state.roomInput}
 						onChange={this.roomKeyInput}
 						required

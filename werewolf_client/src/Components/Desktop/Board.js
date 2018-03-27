@@ -7,7 +7,7 @@ import AwaitingPlayers from './AwaitingPlayers'
 
 import '../../SASS/_board.css'
 
-function Board({mainKey, attendingPlayers, playerPop}) {
+function Board({roomKey, attendingPlayers, playerPop}) {
 	const awaitingPlayer = attendingPlayers === playerPop
 	console.log(attendingPlayers)
 	const testMission = !awaitingPlayer && false;
@@ -18,7 +18,7 @@ function Board({mainKey, attendingPlayers, playerPop}) {
 				{ !awaitingPlayer 
 					&& <AwaitingPlayers 
 						playerPop={playerPop}
-						mainKey={mainKey}
+						roomKey={roomKey}
 						attendingPlayers={attendingPlayers}
 					/>
 				}

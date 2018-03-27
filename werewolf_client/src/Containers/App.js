@@ -19,9 +19,9 @@ class App extends React.Component {
 			players: '',
 			attendingPlayers: 0,
 			userName: '',
-			mainKey:'',
 			roomKey:'',
-			wrongRoom: false,
+			inputKey:'',
+			loginSuccess: undefined,
 		 	response: false,
 		 	endpoint: "http://127.0.0.1:8000"
 		};
@@ -29,11 +29,11 @@ class App extends React.Component {
 
 		//response
 		this.socket.on("game_start", data => {
-			this.setState({ mainKey: data.newGame._id, attendingPlayers: data.newGame.players.length })
+			this.setState({ roomKey: data.newGame._id, attendingPlayers: data.newGame.players.length })
 		});
-		this.socket.on("wrong_room", data => this.setState({ wrongRoom: data.wrongRoom }))
+		this.socket.on("wrong_room", data => this.setState({ loginSuccess: data.loginSuccess }))
 		this.socket.on("playerConfirm", data => {
-			this.setState({ attendingPlayers: this.state.attendingPlayers + 1 })
+			this.setState({ attendingPlayers: this.state.attendingPlayers + 1 , loginSuccess: data.loginSuccess})
 		});
 
 		this.playerNumber = this.playerNumber.bind(this)
@@ -46,22 +46,21 @@ class App extends React.Component {
 	}
 
 	playerName(userID, roomID) {
-		this.setState({userName: userID, roomKey: roomID})
-		this.socket.emit("playerEnter", {userName: userID, roomKey: roomID})
+		this.setState({userName: userID, inputKey: roomID})
+		this.socket.emit("playerEnter", {userName: userID, inputKey: roomID})
 	}
 
 	render() {
 		const isMobile = window.innerWidth <= 500
-		console.log(this.state.wrongRoom)
 		// Need to pass a check that Room Key and Main Key matcha
+		console.log('loginSuccess', this.state.loginSuccess)
 		return isMobile 
 			? <AvalonMobile
-				wrongRoom={this.state.wrongRoom}
-				userName={this.state.userName}
 				userLogin={this.playerName}
+				loginSuccess={this.state.loginSuccess}
 			/>
 			: <AvalonDesktop
-				mainKey={this.state.mainKey}
+				roomKey={this.state.roomKey}
 				attendingPlayers={this.state.attendingPlayers}
 				playerPop={this.state.players}
 				onPopulationInput={this.playerNumber}

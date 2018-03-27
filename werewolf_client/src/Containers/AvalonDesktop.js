@@ -23,7 +23,7 @@ class AvalonDesktop extends React.Component {
 				<Header className='header-component'/>
 				{gameStart 
 					? <Board 
-						mainKey={this.props.mainKey}
+						roomKey={this.props.roomKey}
 						attendingPlayers={this.props.attendingPlayers}
 						playerPop={this.props.playerPop}
 					/>
