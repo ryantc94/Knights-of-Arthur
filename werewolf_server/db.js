@@ -15,7 +15,7 @@ var Player = new mongoose.Schema({
 });
 
 var Game = new mongoose.Schema({
-	_id: String,
+	_id: String, 
 	playerNumber: String,
 	players: [Player],
 	characters: [Character]
