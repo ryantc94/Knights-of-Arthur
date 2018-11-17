@@ -14,35 +14,36 @@ import '../SASS/_app.css'
 
 class App extends React.Component {
 	constructor() {
-		super();
-		this.state = {
-			players: '',
-			attendingPlayers: 0,
-			userName: '',
-			roomKey:'',
-			inputKey:'',
-			loginSuccess: undefined,
-		 	response: false,
-		 	endpoint: "http://127.0.0.1:8000"
-		};
-		this.socket = socketIOClient(this.state.endpoint);
+    super()
+    this.socket = socketIOClient(this.state.endpoint)
 
-		//response
-		this.socket.on("game_start", data => {
-			this.setState({ roomKey: data.newGame._id, attendingPlayers: data.newGame.players.length })
-		});
-		this.socket.on("wrong_room", data => this.setState({ loginSuccess: data.loginSuccess }))
-		this.socket.on("playerConfirm", data => {
-			this.setState({ attendingPlayers: this.state.attendingPlayers + 1 , loginSuccess: data.loginSuccess})
-		});
+	  this.socket.on("game-start", data => {
+      console.log(data)
+  		this.setState({ roomKey: data.newGame._id, attendingPlayers: data.newGame.players.length })
+  	})
 
-		this.playerNumber = this.playerNumber.bind(this)
-		this.playerName	= this.playerName.bind(this)
+    this.socket.on("playerConfirm", data => {
+      this.setState({ attendingPlayers: this.state.attendingPlayers + 1 , loginSuccess: data.loginSuccess})
+    })
+  }
+
+	state = {
+		players: '',
+		attendingPlayers: 0,
+		userName: '',
+		roomKey:'',
+		inputKey:'',
+		loginSuccess: undefined,
+	 	response: false,
+	 	endpoint: "http://127.0.0.1:8000"
 	}
 
-	playerNumber(playerPop) {
-		this.setState({players: playerPop})
-		this.socket.emit("playerPop", {playerPop: playerPop})
+  playerNumber = this.playerNumber.bind(this);
+  playerName = this.playerName.bind(this);
+
+	playerNumber(totalPlayers) {
+		this.setState({players: totalPlayers})
+		this.socket.emit("create-game", { totalPlayers })
 	}
 
 	playerName(userID, roomID) {
